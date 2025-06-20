@@ -1,8 +1,9 @@
+import os
 from flask import Flask, request, jsonify
 from google.cloud import vision
-import os
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'iautismo-service-account.json'
+# Caminho absoluto do secret montado no Cloud Run
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/app/iautismo-service-account.json'
 
 app = Flask(__name__)
 
@@ -13,7 +14,7 @@ def analyze_image():
 
     image_file = request.files['image']
     image_content = image_file.read()
-    
+
     client = vision.ImageAnnotatorClient()
     image = vision.Image(content=image_content)
     response = client.label_detection(image=image)
