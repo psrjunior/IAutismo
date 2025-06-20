@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from google.cloud import vision
 import os
 
-# Caminho absoluto do secret montado no Cloud Run
+# Caminho correto para o arquivo de credenciais montado no container
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/app/iautismo-service-account.json'
 
 app = Flask(__name__)
