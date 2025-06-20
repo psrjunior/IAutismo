@@ -1,6 +1,6 @@
-import os
 from flask import Flask, request, jsonify
 from google.cloud import vision
+import os
 
 # Caminho absoluto do secret montado no Cloud Run
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/app/iautismo-service-account.json'
